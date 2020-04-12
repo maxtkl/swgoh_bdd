@@ -11,7 +11,7 @@ sudo chmod 755 database_creation.sh
 ./database_creation.sh
 ```
 
-- Change the data in "data.py" by yours (you need an swgoh.help api account)
+- Change the data_example.py to "data.py" and complete with your info (you need an swgoh.help api account)
 ```bash
 nano data.py
 ```
