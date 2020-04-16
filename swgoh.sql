@@ -26,5 +26,7 @@ CREATE TABLE `unit` (
 	gear INT,
 	star INT,
 	power INT,
-	relic INT
+	relic INT,
+	NameID VARCHAR(50),
+	img_link VARCHAR(70)
 );

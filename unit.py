@@ -89,8 +89,8 @@ for x in result:
 			relic = x["relic"]["currentTier"] - 2
 		else:
 			relic = 0
-		sql = "INSERT INTO unit (name, allycode, gear, star, power) VALUES (%s, %s, %s, %s, %s)"
-		val = (x["nameKey"].lower(), arg_allycode,x["gear"], x["rarity"], x["gp"])
+		sql = "INSERT INTO unit (name, allycode, gear, star, power, NameID) VALUES (%s, %s, %s, %s, %s,%s)"
+		val = (x["nameKey"].lower(), arg_allycode,x["gear"], x["rarity"], x["gp"], x["defId"])
 		cursor.execute(sql, val)
 		db.commit()
 		# print(x["nameKey"].encode('utf8') + " inserted.")

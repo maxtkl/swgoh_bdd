@@ -60,7 +60,7 @@ for x in result:
 
 if exist:
 	if db_nb_members == nb_members:
-		print(guild_name + " is already in database and update")
+		print(guild_name + " is already in database and updated")
 	else:
 		cursor_update = db.cursor()
 		sql_update = "UPDATE guild SET nb_member = (%s) WHERE name = (%s)"

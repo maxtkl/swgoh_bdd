@@ -64,7 +64,7 @@ for x in result:
 
 	if exist:
 		if Xguild == guild_name:
-			print(Xname.encode('utf8') + " is already in database and update")
+			print(Xname.encode('utf8') + " is already in database and updated")
 			pass
 		else:
 			cursor_update = db.cursor()
@@ -90,7 +90,10 @@ for (Xallycode,Xname,Xrank,Xfleet,Xguild,Xsquadron,Xleader_squad) in result_remo
 	if Xallycode not in current_member:
 		cursor_remove_player = db.cursor()
 		sql_remove_player = "UPDATE player SET guild_name = '' WHERE allycode = " + str(Xallycode)
-		val_remove_player = (str(Xallycode))
 		cursor_remove_player.execute(sql_remove_player)
 		db.commit()
-		print("guild of the player " + Xname.encode('utf8') + " is no more " + guild_name)
+		cursor_remove_squad_player = db.cursor()
+		sql_remove_squad_player = "UPDATE player SET squadron = '' WHERE allycode = " + str(Xallycode)
+		cursor_remove_squad_player.execute(sql_remove_squad_player)
+		db.commit()
+		print("guild of the player " + Xname.encode('utf8') + " is no more " + guild_name.encode('utf8'))
