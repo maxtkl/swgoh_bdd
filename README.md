@@ -22,7 +22,7 @@ crontab -e
 ```
 Example with data download every hour at 15, insert in crontab:
 ```bash
-15 * * * * python <path_to_folder>/swgoh_bdd/all_player_rank_unit.py <allycode>
+15 * * * * python <path_to_folder>/swgoh_bdd/all_player_rank_unit.py <allycode> (allycode without "-")
 ```
 You can instead put this line if you want also to keep a log of it.
 ```bash
