@@ -17,14 +17,14 @@ headers_auth = {
 	"method": "post",
 	"content-type": "application/x-www-form-urlencoded"
 }
-data = data.get_swgoh_connection_data()
+data_auth = data.get_swgoh_connection_data()
 
 
 # sendin request to obtain the token
 if len(sys.argv) > 2:
 	token_str = "Bearer " +sys.argv[2]
 else:
-	auth = requests.post("https://api.swgoh.help/auth/signin", data=data, headers=headers_auth)
+	auth = requests.post("https://api.swgoh.help/auth/signin", data=data_auth, headers=headers_auth)
 	token_str = "Bearer " + auth.json()["access_token"]
 	# print("Give the token for the authentification")
 
@@ -75,8 +75,8 @@ for x in result:
 			print("guild of the player update to " + guild_name)
 	else:
 		cursor = db.cursor()
-		sql = "INSERT INTO player (allycode, name, guild_name,leader_squadron) VALUES (%s, %s, %s,%s)"
-		val = (x["allyCode"], x["name"].lower(),guild_name,0)
+		sql = "INSERT INTO player (allycode, name, guild_name,squadron,leader_squadron) VALUES (%s, %s, %s,%s,%s)"
+		val = (x["allyCode"], x["name"].lower(),guild_name,'',0)
 		cursor.execute(sql, val)
 		db.commit()
 		print(x["name"] + " inserted.")

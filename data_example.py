@@ -22,3 +22,6 @@ def get_mysql_database():
 
 def get_path():
 	return "<folder_path>"
+
+def get_special_player_allycode():
+	return [<allycode1>,<allycode2>,...]

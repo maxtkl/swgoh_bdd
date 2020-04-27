@@ -38,7 +38,8 @@ result = response.json()[0]["roster"]
 
 subprocess.call("python " + data.get_path() +"guild.py " + sys.argv[1] + " " + str(token), shell=True)
 subprocess.call("python " + data.get_path() +"player.py " + sys.argv[1] + " " + str(token), shell=True)
-subprocess.call("python " + data.get_path() +"character_image.py ", shell=True)
+print("Update special player")
+subprocess.call("python " + data.get_path() +"special_player.py " + str(token), shell=True)
 
 counter = 1
 for x in result:
@@ -46,3 +47,5 @@ for x in result:
 	counter = counter + 1
 	subprocess.call("python " + data.get_path() +"player_rank.py " + str(x["allyCode"]) + " " + str(token), shell=True)
 	subprocess.call("python " + data.get_path() +"unit.py " + str(x["allyCode"]) + " " + str(token), shell=True)
+
+# subprocess.call("python " + data.get_path() +"character_image.py", shell=True)
